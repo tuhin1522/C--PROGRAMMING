@@ -1,0 +1,1 @@
+{"name":"Local: Repetitions","url":"c:\\Users\\Acer\\C++ PROGRAMMING\\CSES\\Repetitions.cpp","tests":[{"id":1694785308017,"input":"ATTCGGGA","output":"3"},{"id":1694786459397,"input":"ATTCGGGGGA","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Acer\\C++ PROGRAMMING\\CSES\\Repetitions.cpp","group":"local","local":true}

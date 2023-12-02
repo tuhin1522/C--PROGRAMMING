@@ -1,0 +1,1 @@
+{"name":"Local: Maxmin","url":"c:\\Users\\Acer\\C++ PROGRAMMING\\ALGORITHM_LAB\\Maxmin.cpp","tests":[{"id":1695789164357,"input":"1\n10\n1 7 3 8 9 20 4 5 10 100","output":"Minimum: 1\nMaximum: 100"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Acer\\C++ PROGRAMMING\\ALGORITHM_LAB\\Maxmin.cpp","group":"local","local":true}
