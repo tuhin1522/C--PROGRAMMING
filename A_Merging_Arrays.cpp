@@ -8,7 +8,7 @@ const int mod = (int) 1000000007;
 #define int long long
 #define intd long double
 #define uint unsigned long long
-#define size(x) (int) x.size()
+//#define size(x) (int) x.size()
 #define aint(x) (x).begin(), (x).end()
 
 typedef vector<int> vi;
@@ -46,14 +46,35 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
-
+    int n,m;
+    cin>>n>>m;
+    vi a(n),b(m),c(n+m+2);
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    for(int j=0;j<m;j++){
+        cin>>b[j];
+    }
+    int i=0,j=0;
+    while(i<a.size() || j<b.size()){
+        if(j==b.size() || (i<a.size() && a[i]<b[j])){
+            c[i+j]=a[i];
+            i++;
+        }
+        else{
+            c[i+j]=b[j];
+            j++;
+        }
+    }
+    for(int k=0;k<(n+m);k++){
+        cout<<c[k]<<" ";
+    }
+    cout<<endl;
 }
 int32_t main()
 {
     Faster;
-    int t; 
-    cin>>t; 
-    while(t--) solve();
+    solve();
 
     return 0;
 }
