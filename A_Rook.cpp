@@ -46,19 +46,17 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
-    char ch;
-    int a;
-    cin>>ch>>a;
-
-    for(int i=7;i>=0;i--){
-        if((i+1)==a) continue;
-        cout<<ch<<i+1<<endl;
+    string ch;
+    cin>>ch;
+    int x = ch[1]-'0';
+    for(int i=0;i<8;i++){
+        if((i+1)!=x) 
+            cout<<ch[0]<<(i+1)<<endl;
     }
-    for(int i=7;i>=0;i--){
-        if((i+1)==a) continue;
-        cout<<char(96+i+1)<<a<<endl;
+    for(char i='a';i<='h';i=i+1){
+        if((i)!=ch[0]) 
+            cout<<i<<ch[1]<<endl;
     }
-    
 
 }
 int32_t main()
