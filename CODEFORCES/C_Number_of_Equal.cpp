@@ -44,33 +44,50 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 
 
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define Faster ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
 void solve()
 {
-    int n,m;
-    cin>>n>>m;
-    vi a(n),b(m);
-    map<int,int>mx,mn;
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n), b(m);
+    unordered_map<int, int> mx, mn;
+
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
         mx[a[i]]++;
     }
-    for(int i=0;i<m;i++){
-        cin>>b[i];
+    for (int i = 0; i < m; i++) {
+        cin >> b[i];
         mn[b[i]]++;
     }
-    
-    map<int, int>::iterator it = mx.begin();
- 
-    while (it != mx.end()) {
-        cout << "Key: " << it->first
-             << ", Value: " << it->second << endl;
-        ++it;
+
+    int ans = 0;
+
+    unordered_map<int, int>& sm = (mx.size() < mn.size()) ? mx : mn;
+    unordered_map<int, int>& lm = (mx.size() < mn.size()) ? mn : mx;
+
+    for (auto& u : sm) {
+        int k = u.first;
+        int x = u.second;
+        
+        if (lm.find(k) != lm.end()) {
+            int y = lm[k];
+            ans += x * y;
+        }
     }
+
+    cout << ans << endl;
 }
+
 int32_t main()
 {
     Faster;
     solve();
-
     return 0;
 }
+
