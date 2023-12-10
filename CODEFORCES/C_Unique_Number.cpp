@@ -49,7 +49,7 @@ int getSum(int n)
     int sum = 0;
     while (n != 0) {
         sum = sum + n % 10;
-        n = n / 10;
+        n = n / 10;  
     }
     return sum;
 }
@@ -66,6 +66,7 @@ void solve()
         }
     }
     cout<<-1<<endl;
+    cout<<endl;
 
 }
 int32_t main()
