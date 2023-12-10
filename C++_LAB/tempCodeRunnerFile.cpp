@@ -1,1 +1,1 @@
-m[numSt].getdata()
+siz

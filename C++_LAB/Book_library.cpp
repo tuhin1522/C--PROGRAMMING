@@ -1,133 +1,138 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 const int max_st = 30;
-const int size = 10;
-int numSt = 0;
+const int siz = 10;
+int numSt = 3;
 
-class LibraryBook {
-    char bkName[max_st];
-    char AuthName[max_st];
-    char PubName[max_st];
-    int isbn;
-    int numBk;
-    
-public:
-    void getdata(void);
-    void putdata(void);
-    void DeleteBookInfo(int isn, LibraryBook books[]);
-    void modifyBookInformation(int x);
-    void TotalBooks(LibraryBook books[]);
+class BookLibrary
+{
+    public:
+        string name;
+        string author;
+        string publisher;
+        int ISBN,number_book;
+
+    void initialize(string name, string author,string publisher,int ISBN, int number_book);
+    void modifyBookInformation(int isbn,BookLibrary book[]);
+    void displayAll();
+    void totalbooks(BookLibrary book[]);
+    void DeleteBookInfo(int isbn, BookLibrary book[]);
 };
 
-void LibraryBook::getdata(void) {
-    if (numSt < size) {
-        cout<<"Enter title of book Name: ";
-        cin>>bkName;
-
-        cout<<"Enter Author Name: ";
-        cin>>AuthName;
-
-        cout<<"Enter Publisher Name: ";
-        cin>>PubName;
-
-        cout<<"Enter isbn Number: ";
-        cin>>isbn;
-
-        cout<<"Enter number of books: ";
-        cin>>numBk;
-        numSt++;
-    } else {
-        cout<<"Maximum number of students reached. Cannot add more students."<<endl;
-    }
+void BookLibrary :: initialize(string Name, string Author,string Publisher,int isbn, int Number_book){
+    name = Name;
+    author = Author;
+    publisher = Publisher;
+    ISBN = isbn;
+    number_book = Number_book;
 }
 
-void LibraryBook::TotalBooks(LibraryBook books[]) {
-    cout<<"Total Books Type : "<<numSt<<endl;
-    int totalbooks=0;
+void BookLibrary :: totalbooks(BookLibrary book[]){
+    cout<<"Type of Books : "<<numSt<<endl;
+    int totbk = 0;
     for(int i=0;i<numSt;i++){
-        totalbooks += books[i].numBk;
+        totbk += book[i].number_book;
     }
-    cout<<"Total number of books: "<<totalbooks<<endl;
-    cout<<endl;
+    cout<<"Total Books : "<<totbk<<endl;
 }
 
-void LibraryBook :: modifyBookInformation(int x) {
-    cout<<"Which field do you want to modify?"<<endl;
-    cout<<"1. Title of Book"<<endl;
-    cout<<"2. Name of Author"<<endl;
-    cout<<"3. Name of Publisher"<<endl;
-    cout<<"4. ISBN Number "<<endl;
-    cout<<"5. Number of books"<<endl;
-    cout<<"Enter your modify: ";
-
-    int choice;
-    cin>>choice;
-
-    switch (choice) {
-        case 1:
-            cout<<"Title of book Name: "<<bkName<<endl;
-            cout<<"Enter new title: ";
-            cin>>bkName;
-            break;
-        case 2:
-            cout<<"Author Name: "<<AuthName<<endl;
-            cout<<"Enter new author: ";
-            cin>>AuthName;
-            break;
-        case 3:
-            cout<<"Publisher Name: "<<PubName<<endl;
-            cout<<"Enter new publisher: ";
-            cin>>PubName;
-            break;
-        case 4:
-            cout<<"ISBN Number: "<<isbn<<endl;
-            cout<<"Enter new ISBN: ";
-            cin>>isbn;
-            break;
-        case 5:
-            cout<<"number of books: "<<numBk<<endl;
-            cout<<"Enter new number of books: ";
-            cin>>numBk;
-            break;
-        default:
-            cout<<"Invalid choice"<<endl;
-    }
-}
-
-
-void LibraryBook::putdata(void) {
-    cout<<"Title of book Name: "<<bkName<<endl;
-    cout<<"Author Name: "<<AuthName<<endl;
-    cout<<"Publisher Name: "<<PubName<<endl;
-    cout<<"ISBN Number: "<<isbn<<endl;
-    cout<<"number of books: "<<numBk<<endl;
-    cout<<"--------------------------"<<endl;
-}
-
-void LibraryBook::DeleteBookInfo(int isn, LibraryBook books[]) {
+void BookLibrary::modifyBookInformation(int isb,BookLibrary book[]) {
     bool found = false;
     for (int i = 0; i < numSt; i++) {
-        if (books[i].isbn == isn) {
-            for (int j = i; j < numSt - 1; j++) {
-                books[j] = books[j + 1];
+        if (book[i].ISBN == isb) {
+            cout << "Which field do you want to modify?" << endl;
+            cout << "1. Title of Book" << endl;
+            cout << "2. Name of Author" << endl;
+            cout << "3. Name of Publisher" << endl;
+            cout << "4. ISBN Number " << endl;
+            cout << "5. Number of books" << endl;
+            cout << "Enter the choice : ";
+
+            int choice;
+            cin >> choice;
+
+            switch (choice) {
+            case 1:
+                cout << "Title of book Name: " << book[i].name << endl;
+                cout << "Enter new Title : ";
+                cin >> book[i].name;
+                break;
+
+            case 2:
+                cout << "Author Name: " << book[i].author << endl;
+                cout << "Enter new author : ";
+                cin >> book[i].author;
+                break;
+
+            case 3:
+                cout << "Publisher Name: " << book[i].publisher << endl;
+                cout << "Enter new publisher : ";
+                cin >> book[i].publisher;
+                break;
+
+            case 4:
+                cout << "ISBN Number: " << book[i].ISBN << endl;
+                cout << "Enter new ISBN : ";
+                cin >> book[i].ISBN;
+                break;
+
+            case 5:
+                cout << "number of books: " << book[i].number_book << endl;
+                cout << "Enter new number of books : ";
+                cin >> book[i].number_book;
+                break;
+
+            default:
+                cout << "Invalid choice." << endl;
+            }
+
+            found = true;
+            break; 
+        }
+    }
+
+    if (!found) {
+        cout << "Book with ISBN " << isb << " not found." << endl;
+    }
+}
+
+
+void BookLibrary::DeleteBookInfo(int isb, BookLibrary book[])
+{
+    bool found = false;
+    for(int i=0;i<numSt;i++){
+        if(book[i].ISBN = isb){
+            for(int j=i;j<numSt;j++){
+                book[j] = book[j+1];
             }
             numSt--;
             found = true;
-            cout<<"BookLibrary with Roll Number "<<isn<<" deleted successfully."<<endl;
-            break;
         }
     }
-    if (!found) {
-        cout<<"BookLibrary with isbn Number "<<isn<<" not found."<<endl;
+    if(!found){
+        cout<<"Not found."<<endl;
     }
 }
 
+void BookLibrary::displayAll(void) {
+    cout<<"Title of book Name: "<<name<<endl;
+    cout<<"Author Name: "<<author<<endl;
+    cout<<"Publisher Name: "<<publisher<<endl;
+    cout<<"ISBN Number: "<<ISBN<<endl;
+    cout<<"number of books: "<<number_book<<endl;
+    cout<<"--------------------------"<<endl;
+}
 
-int main() {
-    LibraryBook books[size];
+int main()
+{
+    BookLibrary book[siz];
 
-    while (true) {
+    book[0].initialize("Python","Lipson","Lipschutz",1,10);
+    book[1].initialize("Java","Lipsn","Lipsch",2,10);
+    book[2].initialize("C","Lison","Lschutz",3,10);
+    
+    while(true){
         cout<<endl<<"Options:"<<endl;
         cout<<"1. To insert book information of your library"<<endl;
         cout<<"2. Total number of books Type"<<endl;
@@ -140,39 +145,65 @@ int main() {
         int choice;
         cin>>choice;
 
-        switch (choice) {
-            case 1:
-                cout<<"Books Number : "<<numSt + 1<<endl;
-                books[numSt].getdata();
+        switch(choice)
+        {
+            case 1:{
+                if(numSt<siz){
+                    string name;
+                    string author;
+                    string publisher;
+                    int ISBN,number_book;
+
+                    cout<<"Enter the Book name: ";
+                    cin>>name;
+                    cout<<"Enter Author Name: ";
+                    cin>>author;
+                    cout<<"Enter publisher : ";
+                    cin>>publisher;
+                    cout<<"Enter isbn : ";
+                    cin>>ISBN;
+                    cout<<"Enter number of book : ";
+                    cin>>number_book;
+
+                    book[numSt].initialize(name, author, publisher, ISBN, number_book);
+                    numSt++;
+                    
+                }
+                else{
+                    cout<<"Store is full."<<endl;
+                }
                 break;
+            }
             case 2:
-                books[0].TotalBooks(books);
+            {
+                book[0].totalbooks(book);
                 break;
-            case 3: {
+            }
+            case 3:
+            {
                 int isb;
-                cout<<"Enter isbn Number to modify: ";
+                cout<<"Enter your isbn : ";
                 cin>>isb;
-                books[0].modifyBookInformation(isb);
+                book[0].modifyBookInformation(isb, book);
                 break;
             }
             case 4:
-                for (int i = 0; i < numSt; i++) {
+            {
+                for(int i=0;i<numSt;i++){
                     cout<<"Books Number : "<<i + 1<<endl;
-                    books[i].putdata();
+                    book[i].displayAll();
                 }
                 break;
-            case 5: {
-                int isn;
-                cout<<"Enter ISBN Number to delete: ";
-                cin>>isn;
-                books[0].DeleteBookInfo(isn, books);
+            }
+            case 5:
+            {
+                int isb;
+                cout<<"Enter your isbn : ";
+                cin>>isb;
+                book[0].DeleteBookInfo(isb,book);
                 break;
             }
-            case 6:
-                return 0;
-            default:
-                cout<<"Invalid choice. Please enter a valid option."<<endl;
         }
     }
-    return 0;
+    
 }
