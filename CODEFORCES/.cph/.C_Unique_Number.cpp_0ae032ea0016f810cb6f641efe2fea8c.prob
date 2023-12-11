@@ -1,0 +1,1 @@
+{"name":"Local: C_Unique_Number","url":"/home/tuhin/C++PROGRAMMING/CODEFORCES/C_Unique_Number.cpp","tests":[{"id":1702294289753,"input":"4\n1\n5\n15\n50","output":"1\n5\n69\n-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tuhin/C++PROGRAMMING/CODEFORCES/C_Unique_Number.cpp","group":"local","local":true}

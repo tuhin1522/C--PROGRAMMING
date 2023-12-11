@@ -42,32 +42,27 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-vector<int>a(N);
 
-int getSum(int n)
-{
-    int sum = 0;
-    while (n != 0) {
-        sum = sum + n % 10;
-        n = n / 10;  
-    }
-    return sum;
-}
 
 void solve()
 {
     int n;
     cin>>n;
-    for(int i=1;i<N;i++){
-        a[i] = getSum(i);
-        if(a[i]==n){
-            cout<<i<<endl;
-            return;
+    if(n>45) cout<<-1<<endl;
+    else{
+        string ans;
+        for(int i=9;i>0;i--){
+            if(n-i>=0){
+                n -= i;
+                ans += i+48;
+            }
+            if(n==0){
+                break;
+            }
         }
+        reverse(ans.begin(),ans.end());
+        cout<<ans<<endl;
     }
-    cout<<-1<<endl;
-    cout<<endl;
-
 }
 int32_t main()
 {
