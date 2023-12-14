@@ -8,7 +8,7 @@ const int mod = (int) 1000000007;
 #define int long long
 #define intd long double
 #define uint unsigned long long
-#define size(x) (int) x.size()
+//#define size(x) (int) x.size()
 #define aint(x) (x).begin(), (x).end()
 
 typedef vector<int> vi;
@@ -42,10 +42,49 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
+int vectorToInteger(vector<int>& vec) {
+    int result = 0;
+    for (int value : vec) {
+        result = result * 10 + value;
+    }
 
+    return result;
+}
 
 void solve()
 {
+    int a,b;
+    cin>>a>>b;
+    int sum = a + b;
+    vector<int>c,r,t;
+    string s = to_string(sum);
+    for(int i=0;i<s.size();i++){
+        if(s[i]!= '0'){
+            c.push_back(s[i]-'0');
+        }
+    }
+
+    int x = vectorToInteger(c);
+    
+    string s1 = to_string(a);
+    string s2 = to_string(b);
+    for(int i=0;i<s1.size();i++){
+        if(s1[i]!= '0'){
+            r.push_back(s1[i]-'0');
+        }
+    }
+    for(int i=0;i<s2.size();i++){
+        if(s2[i]!= '0'){
+            t.push_back(s2[i]-'0');
+        }
+    }
+
+    int y = vectorToInteger(r) + vectorToInteger(t);
+    
+
+    if(x==y) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+
     
 }
 int32_t main()
