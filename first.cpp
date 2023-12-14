@@ -46,6 +46,7 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
+    int n;
     
 }
 int32_t main()
