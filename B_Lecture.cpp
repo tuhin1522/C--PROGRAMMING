@@ -8,7 +8,7 @@ const int mod = (int) 1000000007;
 #define int long long
 #define intd long double
 #define uint unsigned long long
-#define size(x) (int) x.size()
+//#define size(x) (int) x.size()
 #define aint(x) (x).begin(), (x).end()
 
 typedef vector<int> vi;
@@ -42,30 +42,35 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-vector<int> prefix_sum(vector<int> &v){
-    for(int i=1;i<size(v);i++){
-        v[i] = v[i-1]+v[i];
+
+
+void solve() {
+    int n, m;
+    cin >> n >> m;
+    string a, b;
+    map<string, string> mp;
+    vector<string> x, y;
+
+    for (int i = 0; i < m; i++) {
+        cin >> a >> b;
+        x.push_back(a);
+        y.push_back(b);
     }
-    return v;
-}
 
+    string s;
+    for (int i = 0; i < n; i++) {
+        cin >> s;
 
-void solve()
-{
-    int n;
-    cin>>n;
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+        for (int j=0;j<m;j++) {
+            if (s==x[j]) {
+                if (x[j].size() <= y[j].size()) {
+                    cout << x[j] << " ";
+                } else {
+                    cout << y[j] << " ";
+                }
+            }
+        }
     }
-    prefix_sum(a);
-
-    
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
-
 }
 int32_t main()
 {
