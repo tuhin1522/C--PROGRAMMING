@@ -42,35 +42,53 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-bool prefixSum(vector<int> &v){
-    int total = 0;
-    for(int i=0;i<size(v);i++){
-        total += v[i];
-    }
-    int prefix_sum=0;
-    for(int i=1;i<size(v);i++){
-        prefix_sum += v[i];
-        int suffix = total + prefix_sum;
-        if(prefix_sum == suffix){
-            return true;
-        }
-    }
-    return false;
-    
-}
 
 
 void solve()
 {
     int n;
     cin>>n;
-    vi a(n);
+    vi a(n),b;
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    
-    if(prefixSum(a)) cout<<"Yes"<<endl;
-    else cout<<"No"<<endl;
+    int chest=0;
+    for(int i=0;i<n;i+=3){
+        chest += a[i];
+    }
+    b.push_back(chest);
+    int biceps=0;
+    for(int i=1;i<n;i+=3){
+        biceps += a[i];
+    }
+    b.push_back(biceps);
+    int back=0;
+    for(int i=2;i<n;i+=3){
+        back += a[i];
+    }
+    b.push_back(back);
+    // for(int i=0;i<size(b);i++){
+    //     cout<<b[i]<<" ";
+    // }
+    // cout<<endl;
+
+    int mx=b[0];
+    int ans = 0;
+    for(int i=1;i<size(b);i++){
+        if(mx<b[i]){
+            mx=b[i];
+            ans = i;
+        }
+    }
+    if(ans == 0){
+        cout<<"chest"<<endl;
+    }
+    else if(ans == 1){
+        cout<<"biceps"<<endl;
+    }
+    else{
+        cout<<"back"<<endl;
+    }
 }
 int32_t main()
 {

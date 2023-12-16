@@ -42,40 +42,25 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-bool prefixSum(vector<int> &v){
-    int total = 0;
-    for(int i=0;i<size(v);i++){
-        total += v[i];
-    }
-    int prefix_sum=0;
-    for(int i=1;i<size(v);i++){
-        prefix_sum += v[i];
-        int suffix = total + prefix_sum;
-        if(prefix_sum == suffix){
-            return true;
-        }
-    }
-    return false;
-    
-}
 
 
 void solve()
 {
     int n;
     cin>>n;
-    vi a(n);
+    string s;
+    cin>>s;
     for(int i=0;i<n;i++){
-        cin>>a[i];
+        cout<<s[n-1];
     }
-    
-    if(prefixSum(a)) cout<<"Yes"<<endl;
-    else cout<<"No"<<endl;
+    cout<<endl;
 }
 int32_t main()
 {
     Faster;
-    solve();
+    int t; 
+    cin>>t; 
+    while(t--) solve();
 
     return 0;
 }

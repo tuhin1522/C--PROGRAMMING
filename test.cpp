@@ -173,6 +173,23 @@ void FindTripletSum(int a[], int n)
     }
 }
 
+//-----array into two sub-array prefix equal to suffix--------//
+bool prefixSum(vector<int> &v){
+    int total = 0;
+    for(int i=0;i<size(v);i++){
+        total += v[i];
+    }
+    int prefix_sum=0;
+    for(int i=1;i<size(v);i++){
+        prefix_sum += v[i];
+        int suffix = total + prefix_sum;
+        if(prefix_sum == suffix){
+            return true;
+        }
+    }
+    return false;
+}
+
 void solve()
 {
 
