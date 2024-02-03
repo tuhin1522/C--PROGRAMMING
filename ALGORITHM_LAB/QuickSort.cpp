@@ -10,21 +10,21 @@ void interchange(int a[],int i,int j){
 int Partition(int a[], int l,int h)
 {
     int pivot = a[l];
-    int i=l-1;
-    int j=h+1;
-    do
+    int i=l;
+    int j=h;
+    while(i<=j)
     {
-        do{
+        while(a[i]<=pivot){
             i++;
-        }  while(a[i]<=pivot);
-        do{
+        }  
+        while(a[j]>pivot){
             j--;
-        } while(a[j]>pivot);
+        } 
         
         if(i<j){
             interchange(a,i,j);
         }
-    }while(i<=j);
+    }
     a[l]=a[j];
     a[j]=pivot;
     return j;
