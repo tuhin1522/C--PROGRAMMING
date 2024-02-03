@@ -2,7 +2,7 @@
 using namespace std;
 
 const int max_st = 30;
-const int size = 10;
+const int mx_size = 10;
 int numSt = 0;
 
 class BScStudentList {
@@ -21,7 +21,7 @@ public:
 };
 
 void BScStudentList::getdata(void) {
-    if (numSt < size) {
+    if (numSt < mx_size) {
         cout<<"Enter BScStudent Name: ";
         cin >> stN;
 
@@ -80,7 +80,7 @@ void BScStudentList::DeleteStudentInfo(int rol, BScStudentList m[]) {
 }
 
 int main() {
-    BScStudentList m[size];
+    BScStudentList m[mx_size];
 
     while (true) {
         cout<<"\nOptions:\n";
