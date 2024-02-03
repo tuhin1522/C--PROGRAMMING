@@ -42,40 +42,45 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-bool prefixSum(vector<int> &v){
-    int total = 0;
-    for(int i=0;i<size(v);i++){
-        total += v[i];
-    }
-    int prefix_sum=0;
-    for(int i=1;i<size(v);i++){
-        prefix_sum += v[i];
-        int suffix = total + prefix_sum;
-        if(prefix_sum == suffix){
-            return true;
+
+int n;
+const int f=100;
+int x[f];
+
+bool Place(int col,int row) {
+    for(int i=1;i<n;i++){
+        if(x[i]==0){
+            continue;
+        }
+        if(x[i]==col || (abs(x[i]-col) == abs(i-row))){
+            return false;
         }
     }
-    return false;
-    
+    return true;
 }
 
-
-void solve()
-{
-    int n;
-    cin>>n;
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+void nqueen(int row,int n){
+    for(int i=1;i<n;i++){
+        if(Place(i,row)){
+            x[row]=i;
+            if(row==n-1){
+                cout<<"solution";
+                for(int i=1;i<n;i++){
+                    cout << x[i] <<" | ";
+                cout<<endl;
+            }
+            
+        }
+        nqueen(row+1,n);
+        x[row]=0;
     }
-    
-    if(prefixSum(a)) cout<<"Yes"<<endl;
-    else cout<<"No"<<endl;
 }
+
 int32_t main()
 {
-    Faster;
-    solve();
-
-    return 0;
+    
+    cin>>n;
+    n++;
+    cout<<"result"<<endl;
+    nqueen(1,n);
 }
