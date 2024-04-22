@@ -5,10 +5,9 @@ const int mod = (int) 1000000007;
 
 #define endl '\n'
 #define pb push_back
-#define int long long
+
 #define intd long double
 #define uint unsigned long long
-#define size(x) (int) x.size()
 #define aint(x) (x).begin(), (x).end()
 
 typedef vector<int> vi;
@@ -44,9 +43,36 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 #define FOR(i,a,b) for (int i = a; i <= b; i++)
 
 
+bool isValidBinary(const std::string& binary) {
+    for (char c : binary) {
+        if (c != '0' && c != '1') {
+            return false;
+        }
+    }
+    return true;
+}
+
 void solve()
 {
-
+    string s;
+    cin>>s;
+    int n=stoi(s);
+    int st[]={10,11,100,101,110,111,1000,1001,1010,1011,1100,1101,1110,1111,10000,10001,10010,10011,10100,10101,10110,10111,11000,11001,11010,11100,11101,11110,11111,100000};
+    if(isValidBinary(s)){
+        cout<<"YES"<<endl;
+    }
+    else{
+        int size = sizeof(st) / sizeof(st[0]);
+        for (int i = size - 1; i >= 0; i--) {
+            if (n >= s[i]) {
+                while (n % s[i] == 0) {
+                    n /= s[i];
+                }
+            }
+        }
+        if(n==1) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
 }
 int32_t main()
 {

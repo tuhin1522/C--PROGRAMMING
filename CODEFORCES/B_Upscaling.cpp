@@ -5,7 +5,7 @@ const int mod = (int) 1000000007;
 
 #define endl '\n'
 #define pb push_back
-#define int long long
+//#define int long long
 #define intd long double
 #define uint unsigned long long
 #define size(x) (int) x.size()
@@ -46,7 +46,20 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
-
+    int n;
+    cin>>n;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if ((i + j) % 2!=0) cout << "..";
+            else cout << "##";
+        }
+        cout << '\n';
+        for (int j = 0; j < n; j++) {
+            if ((i + j) % 2) cout << "..";
+            else cout << "##";
+        }
+        cout << '\n';
+}
 }
 int32_t main()
 {

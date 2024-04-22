@@ -41,19 +41,31 @@ template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_prin
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
-#define FOR(i,a,b) for (int i = a; i <= b; i++)
 
 
-void solve()
-{
 
+int countDigits(int n){
+	// Write your code here.	
+	int temp = n;
+	int cnt=0;
+	while(n != 0){
+		int rem = n%10;
+        
+		if(rem != 0 && temp%rem == 0){
+			cnt++;
+		}
+		n /= 10;
+	}
+	return cnt;
 }
+
 int32_t main()
 {
-    Faster;
-    int t; 
-    cin>>t; 
-    while(t--) solve();
+    int n;
+    cin>>n;
+    int x = countDigits(n);
+    cout<<x<<endl;
+
 
     return 0;
 }

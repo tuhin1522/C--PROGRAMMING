@@ -8,7 +8,7 @@ const int mod = (int) 1000000007;
 #define int long long
 #define intd long double
 #define uint unsigned long long
-#define size(x) (int) x.size()
+//#define size(x) (int) x.size()
 #define aint(x) (x).begin(), (x).end()
 
 typedef vector<int> vi;
@@ -46,7 +46,39 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
-
+    string s;
+    cin>>s;
+    string a="",x="";
+    for(int i=0;i<2;i++){
+        a= a+s[i];
+        
+        
+    }
+    for(int i=3;i<5;i++){
+        x= x+s[i];
+        
+        
+    }
+    int n = stoi(a);
+    if(s[0]=='0' && ('1'<=s[1] && s[1]<='9')){
+        cout<<s<<" AM"<<endl;
+    }
+    else if(s[0]=='1' && (s[1]=='0' || s[1]=='1')){
+        cout<<s<<" AM"<<endl;
+    }
+    else if(s[0]=='0' && s[1]=='0'){
+        cout<<"12:"<<x<<" AM"<<endl;
+    }
+    else if(s[0]=='1' && s[1]=='2'){
+        cout<<s<<" PM"<<endl;
+    }
+    else{
+        int t= n-12;
+        if(t<=9){
+            cout<<"0"<<t<<":"<<x<<" PM"<<endl;
+        }
+        else cout<<t<<":"<<x<<" PM"<<endl;
+    }
 }
 int32_t main()
 {
