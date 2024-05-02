@@ -5,7 +5,7 @@ const int mod = (int) 1000000007;
 
 #define endl '\n'
 #define pb push_back
-
+#define int long long
 #define intd long double
 #define uint unsigned long long
 #define size(x) (int) x.size()
@@ -43,44 +43,32 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 #define FOR(i,a,b) for (int i = a; i <= b; i++)
 
-
+vector<int>a;
+vector<int> printNos(int x) {
+    // Write Your Code Here
+    
+    for(int i=1;i<=x;i++){
+        a.push_back(i);
+    }
+    return a;
+}
 void solve()
 {
-    int n;
-    cin>>n;
-    vector<int>a(n), b(n);
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        a.push_back(x);
-    }
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        b.push_back(x);
-    }
-    // int cnt=0;
-    // for(int i=0;i<n;i++){
-    //     for(int j=0;j<n;i++){
-    //         if(a[i]==a[i+1] || a[i]==b[j]){
-    //             break;
-    //         }
-            
-    //         if(b[j]<=a[i]){
-    //             a.insert(a.begin(), b[j]);
-    //             a.pop_back();
-    //             cnt++;
-    //         }
-    //     }
-    // }
-//     cout<<cnt<<endl;
+
 }
 int32_t main()
 {
     Faster;
     int t; 
     cin>>t; 
-    while(t--) solve();
+    while(t--){
+        int n;
+        cin>>n;
+        printNos(n);
+        for(int i=0;i<size(a);i++){
+            cout<<a[i]<<" ";
+        }
+    }
 
     return 0;
 }

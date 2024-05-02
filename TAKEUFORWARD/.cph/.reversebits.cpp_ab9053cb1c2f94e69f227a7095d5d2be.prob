@@ -1,0 +1,1 @@
+{"name":"Local: reversebits","url":"/home/tuhin/C++PROGRAMMING/TAKEUFORWARD/reversebits.cpp","tests":[{"id":1713781967618,"input":"2\n6\n4","output":"1610612736\n536870912"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tuhin/C++PROGRAMMING/TAKEUFORWARD/reversebits.cpp","group":"local","local":true}

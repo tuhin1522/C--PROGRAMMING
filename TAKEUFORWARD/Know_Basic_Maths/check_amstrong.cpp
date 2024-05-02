@@ -5,10 +5,9 @@ const int mod = (int) 1000000007;
 
 #define endl '\n'
 #define pb push_back
-
+#define int long long
 #define intd long double
 #define uint unsigned long long
-#define size(x) (int) x.size()
 #define aint(x) (x).begin(), (x).end()
 
 typedef vector<int> vi;
@@ -48,39 +47,24 @@ void solve()
 {
     int n;
     cin>>n;
-    vector<int>a(n), b(n);
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        a.push_back(x);
+    string s = to_string(n);
+    int l = s.size();
+    int sum=0;
+    int x=n;
+    while(x>0){
+        int rem = x%10;
+        sum += pow(rem, l);
+        x /= 10;
     }
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        b.push_back(x);
+    if(n==sum){
+        cout<<"True"<<endl;
     }
-    // int cnt=0;
-    // for(int i=0;i<n;i++){
-    //     for(int j=0;j<n;i++){
-    //         if(a[i]==a[i+1] || a[i]==b[j]){
-    //             break;
-    //         }
-            
-    //         if(b[j]<=a[i]){
-    //             a.insert(a.begin(), b[j]);
-    //             a.pop_back();
-    //             cnt++;
-    //         }
-    //     }
-    // }
-//     cout<<cnt<<endl;
+    else cout<<"False"<<endl;
 }
 int32_t main()
 {
     Faster;
-    int t; 
-    cin>>t; 
-    while(t--) solve();
+    solve();
 
     return 0;
 }

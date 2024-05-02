@@ -5,7 +5,7 @@ const int mod = (int) 1000000007;
 
 #define endl '\n'
 #define pb push_back
-
+#define int long long
 #define intd long double
 #define uint unsigned long long
 #define size(x) (int) x.size()
@@ -44,43 +44,37 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 #define FOR(i,a,b) for (int i = a; i <= b; i++)
 
 
-void solve()
-{
-    int n;
-    cin>>n;
-    vector<int>a(n), b(n);
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        a.push_back(x);
+
+
+vector<string> printNTimes(int n) {
+    // Base case: if n is 0, return an empty vector
+    if (n == 0) {
+        return {};
     }
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        b.push_back(x);
-    }
-    // int cnt=0;
-    // for(int i=0;i<n;i++){
-    //     for(int j=0;j<n;i++){
-    //         if(a[i]==a[i+1] || a[i]==b[j]){
-    //             break;
-    //         }
-            
-    //         if(b[j]<=a[i]){
-    //             a.insert(a.begin(), b[j]);
-    //             a.pop_back();
-    //             cnt++;
-    //         }
-    //     }
-    // }
-//     cout<<cnt<<endl;
+
+    // Recursive call with n-1
+    vector<string> s = printNTimes(n - 1);
+
+    // Add "Coding Ninjas" to the vector
+    s.push_back("Coding Ninjas");
+
+    return s;
 }
+
+
 int32_t main()
 {
     Faster;
     int t; 
     cin>>t; 
-    while(t--) solve();
+    while(t--){
+        int n;cin>>n;
+        vector<string> x = printNTimes(n);
+        for(int i=0;i<size(x);i++){
+            cout<<x[i]<<" ";
+        }
+        cout<<endl;
+    }
 
     return 0;
 }

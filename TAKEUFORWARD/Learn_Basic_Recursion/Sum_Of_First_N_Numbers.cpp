@@ -44,43 +44,22 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 #define FOR(i,a,b) for (int i = a; i <= b; i++)
 
 
-void solve()
-{
-    int n;
-    cin>>n;
-    vector<int>a(n), b(n);
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        a.push_back(x);
-    }
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        b.push_back(x);
-    }
-    // int cnt=0;
-    // for(int i=0;i<n;i++){
-    //     for(int j=0;j<n;i++){
-    //         if(a[i]==a[i+1] || a[i]==b[j]){
-    //             break;
-    //         }
-            
-    //         if(b[j]<=a[i]){
-    //             a.insert(a.begin(), b[j]);
-    //             a.pop_back();
-    //             cnt++;
-    //         }
-    //     }
-    // }
-//     cout<<cnt<<endl;
+long long sumFirstN(long long n) {
+    // Write your code here.
+    long long sum;
+    sum = n*(n+1)/2;
+    return sum;
 }
-int32_t main()
+
+int main()
 {
     Faster;
     int t; 
     cin>>t; 
-    while(t--) solve();
-
+    while(t--){
+        int n;
+        cin>>n;
+        cout<<sumFirstN(n)<<endl;
+    }
     return 0;
 }

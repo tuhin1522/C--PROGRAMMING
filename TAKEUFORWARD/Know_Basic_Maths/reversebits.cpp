@@ -5,10 +5,10 @@ const int mod = (int) 1000000007;
 
 #define endl '\n'
 #define pb push_back
-
+#define int long long
 #define intd long double
 #define uint unsigned long long
-#define size(x) (int) x.size()
+
 #define aint(x) (x).begin(), (x).end()
 
 typedef vector<int> vi;
@@ -43,44 +43,33 @@ template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_pr
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 #define FOR(i,a,b) for (int i = a; i <= b; i++)
 
+string reverseString(string s) {
+    int n = s.length();
+    for (int i = 0; i < n / 2; i++) {
+        char temp = s[i];
+        s[i] = s[n - i - 1];
+        s[n - i - 1] = temp;
+    }
+    return s;
+}
 
 void solve()
 {
     int n;
-    cin>>n;
-    vector<int>a(n), b(n);
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        a.push_back(x);
-    }
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        b.push_back(x);
-    }
-    // int cnt=0;
-    // for(int i=0;i<n;i++){
-    //     for(int j=0;j<n;i++){
-    //         if(a[i]==a[i+1] || a[i]==b[j]){
-    //             break;
-    //         }
-            
-    //         if(b[j]<=a[i]){
-    //             a.insert(a.begin(), b[j]);
-    //             a.pop_back();
-    //             cnt++;
-    //         }
-    //     }
-    // }
-//     cout<<cnt<<endl;
+    cin >> n;  
+    bitset<32> bset(n);
+    string s = bset.to_string();
+    string w= reverseString(s);
+    bitset<32> b(w);
+    cout << b.to_ullong() << endl;
 }
 int32_t main()
 {
     Faster;
-    int t; 
-    cin>>t; 
-    while(t--) solve();
-
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
     return 0;
 }

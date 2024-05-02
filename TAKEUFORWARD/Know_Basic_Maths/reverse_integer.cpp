@@ -5,7 +5,7 @@ const int mod = (int) 1000000007;
 
 #define endl '\n'
 #define pb push_back
-
+#define int long long
 #define intd long double
 #define uint unsigned long long
 #define size(x) (int) x.size()
@@ -46,41 +46,28 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
-    int n;
+    long long n;
     cin>>n;
-    vector<int>a(n), b(n);
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        a.push_back(x);
+    int sign = (n < 0) ? -1 : 1;
+    n *= sign;
+    long long reversed = 0;
+    while (n > 0) {
+        int digit = n % 10;
+        if (reversed > (INT_MAX - digit) / 10) {
+            return;
+        }
+        reversed = reversed * 10 + digit;
+        n /= 10;
     }
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        b.push_back(x);
-    }
-    // int cnt=0;
-    // for(int i=0;i<n;i++){
-    //     for(int j=0;j<n;i++){
-    //         if(a[i]==a[i+1] || a[i]==b[j]){
-    //             break;
-    //         }
-            
-    //         if(b[j]<=a[i]){
-    //             a.insert(a.begin(), b[j]);
-    //             a.pop_back();
-    //             cnt++;
-    //         }
-    //     }
-    // }
-//     cout<<cnt<<endl;
+    cout<< reversed * sign <<endl;
 }
+
+
+
 int32_t main()
 {
     Faster;
-    int t; 
-    cin>>t; 
-    while(t--) solve();
+    solve();
 
     return 0;
 }
