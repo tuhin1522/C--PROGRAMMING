@@ -97,16 +97,58 @@
 # lst = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
 # print(element_frequency(lst))
 
-test_list = [12, 67, 98, 34]
+# class Solution(object):
+#     def rotate(self, nums, k):
+#         l=len(nums)
+#         k=k%l
+#         i,j=0,l-k
+#         #partition
+#         print(i,j)
+#         k=j
+#         while(i<j and k!=l):
+#                 nums[i],nums[j]=nums[j],nums[i]
+#                 i+=1
+#                 j+=1
+#                 # when i reaches partiton , update partition value
+#                 if(i==k and j!=l):
+#                     k=j
+#                 # when j reaches the end,  update the value j to partition index
+#                 elif(j>l-1):
+#                     j=k
 
-print("The original list : "+ str(test_list))
-res = list(map(lambda ele: sum(int(sub) for sub in str(ele)), test_list))
-# for ele in test_list:
-#     sum = 0
-#     for digit in str(ele):
-#         sum += int(digit)
-#     res.append(sum)
+# sol = Solution()
+# n = 2
+# nums = [1,2,3,4,5,6]
+# x = sol.shuffle(nums, n)
+# a = len(x)
 
-print("The original list : "+ str(res))
+# def BubbleSort(a, n):
+#     for i in range(n-1,0, -1):
+#         for j in range(0,i):
+#             if a[j]>a[j+1]:
+#                 temp = a[j]
+#                 a[j] = a[j+1]
+#                 a[j+1] = temp
+#     print(a)
+
+# a = [6,3,5,1,8]
+# n = 5
+# BubbleSort(a,n)
+
+num_customers = [137, 147, 135, 128, 170, 174, 165, 146, 126, 159,
+                 141, 148, 132, 147, 168, 153, 170, 161, 148, 152,
+                 141, 151, 131, 149, 164, 163, 143, 143, 166, 171]
+
+# TODO: Fill in values for the variables below
+avg_first_seven = sum(num_customers[0:7])
+avg_last_seven = sum(num_customers[-7:])/7
+max_month = max(num_customers)
+min_month = min(num_customers)
+
+print(avg_first_seven)
+print(avg_last_seven)
+print(max_month)
+print(min_month)
+
 
 
