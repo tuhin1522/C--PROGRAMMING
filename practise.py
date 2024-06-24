@@ -135,20 +135,38 @@
 # n = 5
 # BubbleSort(a,n)
 
-num_customers = [137, 147, 135, 128, 170, 174, 165, 146, 126, 159,
-                 141, 148, 132, 147, 168, 153, 170, 161, 148, 152,
-                 141, 151, 131, 149, 164, 163, 143, 143, 166, 171]
+# Python3 program to find second
+# largest element in an array
 
-# TODO: Fill in values for the variables below
-avg_first_seven = sum(num_customers[0:7])
-avg_last_seven = sum(num_customers[-7:])/7
-max_month = max(num_customers)
-min_month = min(num_customers)
+# Function to print the
+# second largest elements
 
-print(avg_first_seven)
-print(avg_last_seven)
-print(max_month)
-print(min_month)
+
+def print2largest(arr, arr_size):
+
+    # Sort the array in descending order
+    arr.sort(reverse=True)
+    print(arr)
+    # Start from second last element as first
+    # element is the largest
+    for i in range(1, arr_size):
+
+        # If the element is not
+        # equal to largest element
+        if (arr[i] != arr[0]):
+            print("The second largest element is", arr[i])
+            return
+
+    print("There is no second largest element")
+
+
+# Driver code
+arr = [12, 35, 1, 10, 34, 1]
+n = len(arr)
+print2largest(arr, n)
+
+# This code is contributed by divyeshrabadiya07
+
 
 
 

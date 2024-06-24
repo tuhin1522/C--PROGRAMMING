@@ -46,15 +46,26 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
-    int n; 
-    cin>>n; 
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-    }
-    int x = *max_element(a.begin(),a.end()-1);
-    int ans = x + a[n-1];
-    cout<<ans<<endl;
+    int a,b,c,d;
+    cin>>a>>b>>c>>d;
+    if(a>b){
+		swap(a,b);
+	}
+    int z = 0;
+	for(int j=a+1; j<b; j++){
+		if(j==c || j==d){
+			z++;
+		}
+		if(z==2){
+			break;
+		}
+	}
+	if(z==1){
+		cout<<"YES"<<endl;
+	}
+	else{
+		cout<<"NO"<<endl;
+	}
 }
 int32_t main()
 {

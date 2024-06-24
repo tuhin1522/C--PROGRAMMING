@@ -46,15 +46,22 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
-    int n; 
-    cin>>n; 
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+  int n;
+  cin>>n;
+  string s;
+  cin>>s;
+  map<char, int>mp;
+  for(int i=0;i<n;i++){
+    mp[s[i]]++;
+  }
+  int x = size(mp) * 2;
+  int sum = 0;
+  for (auto it = mp.begin(); it != mp.end(); it++) {
+    if (it->second > 1) {
+            sum += it->second - 1;
     }
-    int x = *max_element(a.begin(),a.end()-1);
-    int ans = x + a[n-1];
-    cout<<ans<<endl;
+  }
+  cout<<x+sum<<endl;
 }
 int32_t main()
 {

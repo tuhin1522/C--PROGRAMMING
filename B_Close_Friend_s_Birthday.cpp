@@ -46,22 +46,26 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 
 void solve()
 {
-    int n; 
-    cin>>n; 
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+  int n;
+  cin>>n;
+  unordered_map<string,pair<string,int>>a;
+  for(int i=0;i<n;i++){
+    int x;
+    string st,y;
+    cin>>st>>x>>y;
+    if (a.find(y)==a.end()||x> a[y].second){
+      a[y]={st, x};
     }
-    int x = *max_element(a.begin(),a.end()-1);
-    int ans = x + a[n-1];
-    cout<<ans<<endl;
+  }
+  cout<<size(a)<<endl;
+  for (auto i=a.begin();i!=a.end();i++){
+    cout<<i->second.first << endl;
+  }
 }
 int32_t main()
 {
     Faster;
-    int t; 
-    cin>>t; 
-    while(t--) solve();
+    solve();
 
     return 0;
 }

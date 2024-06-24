@@ -1,0 +1,1 @@
+{"name":"Local: Second_Largest","url":"/home/tuhin/C++PROGRAMMING/GFG/Second_Largest.py","tests":[{"id":1718602313500,"input":"1\n6\n12 35 34 1 10 1","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/tuhin/C++PROGRAMMING/GFG/Second_Largest.py","group":"local","local":true}

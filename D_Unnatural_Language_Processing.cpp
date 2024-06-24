@@ -44,17 +44,31 @@ template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i
 #define FOR(i,a,b) for (int i = a; i <= b; i++)
 
 
+bool vowel(char ch)
+{
+    return ch=='a' || ch=='e'; 
+}
 void solve()
 {
-    int n; 
-    cin>>n; 
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+    int n;
+    string s,ans;
+    cin>>n>>s;
+    for(int i=n-1; i>=0; --i)
+    {
+        if(vowel(s[i]) && !vowel(s[i-1]))
+        {
+            ans.push_back(s[i]);
+            ans.push_back(s[i-1]);
+            ans.push_back('.');
+            --i;
+        }
+        else
+            ans.push_back(s[i]);
     }
-    int x = *max_element(a.begin(),a.end()-1);
-    int ans = x + a[n-1];
+    ans.pop_back();
+    reverse(ans.begin(), ans.end());
     cout<<ans<<endl;
+    
 }
 int32_t main()
 {
