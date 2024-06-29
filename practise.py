@@ -142,30 +142,34 @@
 # second largest elements
 
 
-def print2largest(arr, arr_size):
+def can_collect_coin(n, coins):
+    results = []
+    for xi, yi in coins:
+        can_collect = False
+        for t in range(101):
+            if abs(xi) + abs(yi - t) == t:
+                can_collect = True
+                break
+        results.append("YES" if can_collect else "NO")
+    return results
 
-    # Sort the array in descending order
-    arr.sort(reverse=True)
-    print(arr)
-    # Start from second last element as first
-    # element is the largest
-    for i in range(1, arr_size):
+# Example input
+n = 5
+coins = [
+    (24, 42),
+    (-2, -1),
+    (-1, -2),
+    (0, -50),
+    (15, 0)
+]
 
-        # If the element is not
-        # equal to largest element
-        if (arr[i] != arr[0]):
-            print("The second largest element is", arr[i])
-            return
+# Get results
+results = can_collect_coin(n, coins)
 
-    print("There is no second largest element")
+# Print results
+for result in results:
+    print(result)
 
-
-# Driver code
-arr = [12, 35, 1, 10, 34, 1]
-n = len(arr)
-print2largest(arr, n)
-
-# This code is contributed by divyeshrabadiya07
 
 
 
